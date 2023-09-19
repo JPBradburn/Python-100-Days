@@ -28,5 +28,5 @@ def turn(A):
         print(art.logo)
         print("Sorry, that's wrong. Final score: " + str(score))
         if input("Do you want to play again? ('Y' / 'N'): ").lower() == "y":
-            turn()
+            turn(random.choice(game_data.data))
 turn(random.choice(game_data.data))
