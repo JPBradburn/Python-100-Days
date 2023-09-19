@@ -5,7 +5,8 @@ import game_data
 
 print(art.logo)
 
-score=0
+score = 0
+
 
 def turn(A):
     global score
@@ -29,4 +30,6 @@ def turn(A):
         print("Sorry, that's wrong. Final score: " + str(score))
         if input("Do you want to play again? ('Y' / 'N'): ").lower() == "y":
             turn(random.choice(game_data.data))
+
+
 turn(random.choice(game_data.data))
