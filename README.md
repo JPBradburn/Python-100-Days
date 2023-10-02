@@ -1,4 +1,31 @@
-# Python100Days
-Master Python by building 100 projects in 100 days. Learn data science, automation, build websites, games and apps!
+import random
+from turtle import Turtle, Screen
 
-My code for the projects in this course.
+screen = Screen()
+screen.setup(height=400, width=500)
+screen.title("Welcome to the turtle race!")
+user_bet = screen.textinput(title="Make your bet.", prompt="Which turtle will win the race? Enter a colour. ")
+
+colours = ["red", "orange", "yellow", "green", "blue", "pink"]
+turtles = []
+winner = None
+
+for colour in colours:
+    turtles.append(Turtle(shape="turtle"))
+    turtles[-1].pu()
+    turtles[-1].color(colour)
+    turtles[-1].setposition(x=-225, y=175 - len(turtles) * 50)
+
+while not winner:
+    for turtle in turtles:
+        turtle.forward(random.randint(0, 10))
+        if turtle.xcor() >= 215:
+            winner = turtle
+            break
+
+if user_bet == winner.fillcolor():
+    print("You win!")
+else:
+    print(f"Sorry, {user_bet} didn't win, {winner.fillcolor()} won.")
+
+screen.exitonclick()
